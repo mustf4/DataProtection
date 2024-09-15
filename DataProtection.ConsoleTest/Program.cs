@@ -21,13 +21,14 @@ namespace DataProtection.ConsoleTest
         {
             Console.WriteLine("AES Encryption test:");
             string key = "0123456789abcdefghijklmnopqrstuv";
+            string salt = "my salt data";
 
-            string encrypted = Encryption.Aes.Encrypt(DataToEncrypt, key);
+            string encrypted = Encryption.Aes.Encrypt(DataToEncrypt, key, salt);
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Encrypted data: {encrypted}");
             Console.ForegroundColor = _defaultForegroundColor;
 
-            string decrypted = Encryption.Aes.Decrypt(encrypted, key);
+            string decrypted = Encryption.Aes.Decrypt(encrypted, key, salt);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"Decrypted data: {decrypted}");
             Console.ForegroundColor = _defaultForegroundColor;
