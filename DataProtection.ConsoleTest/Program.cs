@@ -41,7 +41,7 @@ namespace DataProtection.ConsoleTest
         {
             Console.WriteLine("RSA Encryption test:");
 
-            using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider())
+            using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(2048))
             {
                 RSAParameters publicKey = rsa.ExportParameters(false);
                 RSAParameters privateKey = rsa.ExportParameters(true);

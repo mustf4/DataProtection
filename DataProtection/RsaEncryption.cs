@@ -16,7 +16,7 @@ namespace DataProtection
             using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider())
             {
                 rsa.ImportParameters(publicKey);
-                encryptedData = rsa.Encrypt(dataToEncrypt, false);
+                encryptedData = rsa.Encrypt(dataToEncrypt, true);
             }
 
             return Convert.ToBase64String(encryptedData);
@@ -30,7 +30,7 @@ namespace DataProtection
             using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider())
             {
                 rsa.ImportParameters(privateKey);
-                decryptedData = rsa.Decrypt(dataToDecrypt, false);
+                decryptedData = rsa.Decrypt(dataToDecrypt, true);
             }
 
             return Encoding.UTF8.GetString(decryptedData);
